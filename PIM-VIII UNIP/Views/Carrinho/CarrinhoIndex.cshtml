@@ -1,0 +1,37 @@
+﻿@using PIM_VIII_UNIP.Models.ViewModels;
+@model CarrinhoViewDTO
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Carrinho de Compras</h2>
+
+<div class="row">
+    @if (Model != null)
+    {
+        @foreach (var item in Model.ItensCarrinho)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="@item.Produto.ImagePath" class="card-img-top" alt="Imagem do Produto">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Produto.Nome</h5>
+                        <p class="card-text">Quantidade: @item.Quantidade</p>
+                        <p class="card-text">Valor Unitário: @item.Produto.Preco.ToString("C")</p>
+                        <p class="card-text">Valor Total: @item.ValorTotal.ToString("C")</p>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="total">
+            <strong>Total:</strong> @Model.ValorTotal.ToString("C")
+        </div>
+    }
+    else
+    {
+       <div>
+           <h1>Nenhum item Adicionado ao Carrinho</h1>   
+       </div>
+    }
+    
+</div>
+

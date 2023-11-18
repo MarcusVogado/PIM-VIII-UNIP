@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PIM_VIII_UNIP.Models.Produto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Olá Novamente</h1>    
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="@item.ImagePath" alt="Imagem do Produto">
+                <div class="card-body">
+                    <p class="card-text">Preço: @item.Preco.ToString("C")</p>
+                    <p class="card-text">Descrição: @item.Descricao</p>
+                    <p class="card-text">Status: @item.Status</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a asp-action="AdicionarProdutoAoCarrinho" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Adicionar no Carrinho</a>
+                            <a asp-action="Detalhes" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
