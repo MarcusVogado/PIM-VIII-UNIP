@@ -7,5 +7,7 @@
         void Excluir(T classe);
         T ObterPorId(int id);
         List<T> ObterTodos();
+        List<T> obterLista(int id);
+
     }
 }

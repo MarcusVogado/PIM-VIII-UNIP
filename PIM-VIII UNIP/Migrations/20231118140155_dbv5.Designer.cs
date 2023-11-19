@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PIM_VIII_UNIP.DbContextConfig;
 
@@ -11,9 +12,10 @@ using PIM_VIII_UNIP.DbContextConfig;
 namespace PIM_VIII_UNIP.Migrations
 {
     [DbContext(typeof(MarketPlaceContext))]
-    partial class MarketPlaceContextModelSnapshot : ModelSnapshot
+    [Migration("20231118140155_dbv5")]
+    partial class dbv5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,7 +247,7 @@ namespace PIM_VIII_UNIP.Migrations
             modelBuilder.Entity("PIM_VIII_UNIP.Models.ItemCarrinho", b =>
                 {
                     b.HasOne("PIM_VIII_UNIP.Models.Carrinho", "Carrinho")
-                        .WithMany("ItensCarrinho")
+                        .WithMany("ProdutosCarrinho")
                         .HasForeignKey("CarrinhoID");
 
                     b.HasOne("PIM_VIII_UNIP.Models.Produto", "Produto")
@@ -281,7 +283,7 @@ namespace PIM_VIII_UNIP.Migrations
 
             modelBuilder.Entity("PIM_VIII_UNIP.Models.Carrinho", b =>
                 {
-                    b.Navigation("ItensCarrinho");
+                    b.Navigation("ProdutosCarrinho");
                 });
 #pragma warning restore 612, 618
         }

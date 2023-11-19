@@ -1,5 +1,5 @@
 ﻿@using PIM_VIII_UNIP.Models.ViewModels;
-@model CarrinhoViewDTO
+@model CarrinhoView
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -24,6 +24,7 @@
         }
         <div class="total">
             <strong>Total:</strong> @Model.ValorTotal.ToString("C")
+            <a asp-action="CriarPedido" class="btn btn-sm btn-outline-secondary">Finalizar Compra</a>
         </div>
     }
     else
@@ -35,3 +36,9 @@
     
 </div>
 
+@if (TempData["Alerta"] != null)
+{
+    <script>
+        alert('@TempData["Alerta"]');
+    </script>
+}

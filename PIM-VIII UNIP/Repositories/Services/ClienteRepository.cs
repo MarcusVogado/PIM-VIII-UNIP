@@ -30,6 +30,11 @@ namespace PIM_VIII_UNIP.Repositories.Services
             _marketPlaceContext.SaveChanges();
         }
 
+        public List<Cliente> obterLista(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Cliente ObterPorId(int id)
         {
             return _marketPlaceContext.Clientes.FirstOrDefault(c => c.Id.Equals(id));

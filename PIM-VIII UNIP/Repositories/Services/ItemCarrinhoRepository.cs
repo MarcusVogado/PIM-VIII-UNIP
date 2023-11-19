@@ -30,6 +30,11 @@ namespace PIM_VIII_UNIP.Repositories.Services
             _marketPlaceContext.SaveChanges();
         }
 
+        public List<ItemCarrinho> obterLista(int id)
+        {
+            return _marketPlaceContext.ItensCarrinho.Where(i=> i.CarrinhoID == id).ToList();    
+        }
+
         public ItemCarrinho ObterPorId(int id)
         {
             return _marketPlaceContext.ItensCarrinho.FirstOrDefault(i => i.Id.Equals(id));

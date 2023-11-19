@@ -1,0 +1,39 @@
+﻿@using PIM_VIII_UNIP.Models.ViewModels;
+@model List<Carrinho>
+
+<h2>Lista de Pedidos</h2>
+
+<div class="row">
+    @if (Model != null)
+    {
+        @foreach (var pedido in Model)
+        {
+            <div class=" flex-column justify-content-between">
+                <div class="card w-50">
+                    <div class="card-body">
+                        <h5 class="card-title">Pedido # @pedido.Id</h5>
+                        <p class="card-text">Data do Pedido: @pedido.DataPedido.ToString("dd/MM/yyyy HH:mm:ss")</p>
+
+                        @foreach (var itemPedido in pedido.ProdutosCarrinho)
+                        {
+                            <div class="media mb-2">
+                                <img src="@itemPedido.Produto.ImagePath" class="mr-3" alt="Imagem do Produto" width="64" height="64">
+                                <div class="media-body">
+                                    <h6 class="mt-0">@itemPedido.Produto.Nome</h6>
+                                    <p>Quantidade: @itemPedido.Quantidade</p>
+                                    <p>Valor Total: @itemPedido.ValorTotal.ToString("C")</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+      <div class="text-center">
+        Nenhum Carrinho Encontrado    
+      </div>
+    }
+</div>

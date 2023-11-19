@@ -3,9 +3,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Olá Novamente</h1>    
-</div>
 
 <div class="row">
     @foreach (var item in Model)
@@ -30,3 +27,9 @@
 </div>
 
 
+@if (TempData["Alerta"] != null)
+{
+    <script>
+        alert('@TempData["Alerta"]');
+    </script>
+}

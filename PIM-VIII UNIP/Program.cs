@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 
 //Adicionando Dependências
-builder.Services.AddScoped<IRepository<Carrinho>, CarrinhoRespository>();
+builder.Services.AddScoped<IRepository<Carrinho>, CarrinhoRepository>();
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
 builder.Services.AddScoped<IRepository<Endereco>, EnderecoRepository>();
 builder.Services.AddScoped<IRepository<ItemCarrinho>, ItemCarrinhoRepository>();

@@ -1,6 +1,6 @@
 ﻿namespace PIM_VIII_UNIP.Models.ViewModels
 {
-    public class CarrinhoViewDTO
+    public class CarrinhoView
     {
         public double ValorTotal { get; set; }
         public List<Produto> Produtos { get; set; }

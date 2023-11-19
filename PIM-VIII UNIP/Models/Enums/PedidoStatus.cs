@@ -2,7 +2,7 @@
 {
     public enum PedidoStatus
     {
-        PedidoConfirmadoo,
+        PedidoConfirmado,
         PagamentoConfirmado,
         EmSeparacao,
         PedidoEnviado,

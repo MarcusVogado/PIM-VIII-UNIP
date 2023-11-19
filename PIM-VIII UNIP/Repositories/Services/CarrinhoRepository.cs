@@ -4,10 +4,10 @@ using PIM_VIII_UNIP.Repositories.Contracts;
 
 namespace PIM_VIII_UNIP.Repositories.Services
 {
-    public class CarrinhoRespository : IRepository<Carrinho>
+    public class CarrinhoRepository : IRepository<Carrinho>
     {
         private readonly MarketPlaceContext _marketPlaceContext;
-        public CarrinhoRespository(MarketPlaceContext marketPlaceContext)
+        public CarrinhoRepository(MarketPlaceContext marketPlaceContext)
         {   
             _marketPlaceContext = marketPlaceContext;
         }
@@ -29,6 +29,11 @@ namespace PIM_VIII_UNIP.Repositories.Services
             _marketPlaceContext.Carrinhos.Remove(carrinho);
             _marketPlaceContext.SaveChanges();
             
+        }
+
+        public List<Carrinho> obterLista(int id)
+        {
+            return _marketPlaceContext.Carrinhos.Where(c=> c.ClienteID==id).ToList();
         }
 
         public Carrinho ObterPorId(int id)

@@ -30,6 +30,11 @@ namespace PIM_VIII_UNIP.Repositories.Services
             _marketPlaceContext.SaveChanges();
         }
 
+        public List<Endereco> obterLista(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Endereco ObterPorId(int id)
         {
             return _marketPlaceContext.Enderecos.FirstOrDefault(e => e.Id.Equals(id));
